@@ -1,39 +1,39 @@
 import axios from 'axios';
+import { connect } from 'react-redux';
+
 import React from 'react';
 import './main-panel.styles.scss';
+import {setCurrentTrackList, setPlayList} from '../../redux/track-list/track-list.actions';
 
-
+import PlayList from '../play-list/play-list.component';
+import SearchBar from '../search-bar/search-bar.component';
 
 class MainPanel extends React.Component{
-
-
-    state = {
-        songs: []
-    };
+    
 
     componentDidMount(){
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0`).then(res => {
-            console.log(res.data.tracks.data);
-            this.setState({songs: res.data.tracks.data})
+        const {setCurrentTrackList} = this.props;
+        const {setPlayList} = this.props
+        axios.get(`http://localhost:8080/https://api.deezer.com/chart/0`).then(res => {
+            console.log("ESTE ES EL INICIAL: ", res.data.tracks.data)
+            setCurrentTrackList(res.data.tracks.data)
+            setPlayList(res.data.tracks.data);
         })
     }
     render(){
         return(
             <div className='main-panel'>
-                {
-                    this.state.songs.map(
-                        (song, i) => (
-                            <div className="container" key={i}>
-                                <img src={song.album.cover} alt={song.title_short}/>
-                                <span className="title">{song.title_short}</span>
-                                <span className="artist">{song.artist.name}</span>
-                            </div>
-                        )
-                    )
-                }
+                <SearchBar/>
+                <PlayList/>
             </div>
         )
     }
 }
 
-export default MainPanel;
+
+
+const mapDispatchToProps = dispatch=>({
+    setCurrentTrackList: trackList => dispatch(setCurrentTrackList(trackList)),
+    setPlayList: trackList => dispatch(setPlayList(trackList))
+})
+export default connect(null, mapDispatchToProps)(MainPanel);

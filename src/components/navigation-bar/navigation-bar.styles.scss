@@ -1,24 +1,26 @@
 .navigation-bar{
     display: flex;
     flex-direction: column;
-    padding-left: 3em;
-    padding-top: 3em;
     align-items: flex-start;
     background-color: #662323;
     width: 25vw;
     height: 100vh;
     .menu-link{
+        margin-left: 3em;
         color: white;
         text-decoration: none;
         font-weight: 400;
         line-height: 1.5em;
     }
     h3{
+        margin-left: 2.5em;
         color: white;
         font-weight: 700;
         margin-bottom: 0.5em;
     }
     .logo{
+        margin-top: 2em;
+        margin-left: 2em;
         width: 20vw;
     }
 }

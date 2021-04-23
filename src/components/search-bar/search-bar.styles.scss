@@ -1,0 +1,31 @@
+.search-bar{
+    position: relative;
+    input{
+        border-radius: 4em;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-color: #828282;
+        border-width: 1px;
+        width: 30em;
+        height: 2em;
+        margin-bottom: 2em;
+        border-right-width: 0px;
+    }
+    button{
+        background-color: transparent;
+        width: 3em;
+        height: 2.3em;
+        border-left-width: 0;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+        border-top-left-radius: 0;
+        border-color: #828282;
+        border-top-right-radius: 4em;
+        border-bottom-right-radius: 4em;
+
+    }
+    .submit-icon{
+        position: absolute;
+    }
+}
