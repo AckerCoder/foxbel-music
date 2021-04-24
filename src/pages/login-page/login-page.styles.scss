@@ -1,0 +1,37 @@
+.login-page{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    .cover{
+        width: 50vw;
+        height: 100vh;
+        background-color: #662323;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 40vw;
+            height: 20vh;
+        }
+    }
+    .form{
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: space-around;
+        .text-field{
+            width: 15vw;
+            height: 2.5em;
+            border-radius: 3em;
+            border-width: 1px;
+        }
+        form{
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+    }
+}

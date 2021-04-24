@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import './control-bar.styles.scss';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPlay, faStepBackward, faStepForward, faVolumeOff, faPause} from '@fortawesome/free-solid-svg-icons';
+import {faPlay, faStepBackward, faStepForward, faVolumeOff} from '@fortawesome/free-solid-svg-icons';
 import {play} from "../../redux/media-player/media-player.actions"
 
-const ControlBar = ({trackList,indexCurrentSong, toogleButton})=>{
+const ControlBar = ({trackList,indexCurrentSong})=>{
     const [volume, setVolume] = useState(1)
 
     const handleChange = (event)=>{
@@ -17,6 +17,7 @@ const ControlBar = ({trackList,indexCurrentSong, toogleButton})=>{
     return(
         <div className="control-bar">
             {
+                trackList?
                 trackList.length?
                 <div className="info">
                     <img src={trackList[indexCurrentSong].album.cover} alt=""/>
@@ -26,15 +27,12 @@ const ControlBar = ({trackList,indexCurrentSong, toogleButton})=>{
                     </div>
                 </div>
                 :<div></div>
+                :<div></div>
             }
             <div className="controls">
                 <FontAwesomeIcon className="icon" icon={faStepBackward}/>
                 <div className="circle-play">
-                    {!toogleButton?
-                        <FontAwesomeIcon className="icon" icon={faPlay}/>
-                     :
-                     <FontAwesomeIcon className="icon" icon={faPause}/>
-                    }
+                    <FontAwesomeIcon className="icon" icon={faPlay}/>
                 </div>
                 <FontAwesomeIcon className="icon" icon={faStepForward}/>
             </div>
@@ -61,7 +59,6 @@ const mapStateToProps = state=>({
     playList: state.trackList.playList,
     mediaPlayer: state.trackList.mediaPlayer,
     indexCurrentSong: state.trackList.indexCurrentSong,
-    toogleButton: state.mediaPlayer.toogleButton
 })
 
 const mapDispatchToProps = dispatch=>({

@@ -9,6 +9,7 @@ export const setPlayList = (trackList) => {
 }
 
 export const playTrack = (indexSong, currentPlayList, mediaPlayer) => {
+    console.log(indexSong);
     window.Howler.stop();
     mediaPlayer = new Howl({
         src: currentPlayList[indexSong]

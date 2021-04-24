@@ -6,8 +6,8 @@ import './main-panel.styles.scss';
 import {setCurrentTrackList, setPlayList} from '../../redux/track-list/track-list.actions';
 
 import PlayList from '../play-list/play-list.component';
-import SearchBar from '../search-bar/search-bar.component';
-
+import Header from '../header/header.component';
+import MainTrack from '../main-track/main-track.component';
 class MainPanel extends React.Component{
     componentDidMount(){
         const {setCurrentTrackList} = this.props;
@@ -21,7 +21,8 @@ class MainPanel extends React.Component{
     render(){
         return(
             <div className='main-panel'>
-                <SearchBar/>
+                <Header/>
+                <MainTrack/>
                 <PlayList/>
             </div>
         )
