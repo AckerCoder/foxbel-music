@@ -13,16 +13,15 @@ import { setPlayList, setCurrentTrackList } from '../../redux/track-list/track-l
 const SearchBar = ({setCurrentTrackList, setPlayList}) => {
 
     const handleChange = (event) => {
-        axios.get(`http://localhost:8080/https://api.deezer.com/search/track?q=eminem`).then(res => {
-            console.log("ESTE ES EL QUE RECIBIMOS DE SEARCH: ",res.data.data);
+        axios.get(`http://localhost:8080/https://api.deezer.com/search/track?q=${event.target.value}`).then(res => {
             setCurrentTrackList(res.data.data)
             setPlayList(res.data.data);
         })
     }
     
     return(
-        <div className="search-bar" key="search" value="track">
-                <input type="serch" placeholder="Buscar" onChange={handleChange}/>
+        <div className="search-bar">
+                <input type="search" placeholder="Buscar" onChange={handleChange}/>
                 <button type="submit">
                     <FontAwesomeIcon icon={faSearch}/>
                 </button>

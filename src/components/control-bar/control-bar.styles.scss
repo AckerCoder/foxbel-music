@@ -1,12 +1,42 @@
+
+
+
 .control-bar{
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     background-color: #EB5757;
     position: fixed;
     left: 50%;
-    top: 90%;
+    top: 85%;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .info{
+        display: flex;
+        align-items: center;
+        img{
+            height: 15vh;
+            width: 15vh;
+        }
+        .title-artist-album{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 1em;
+            .title{
+                color:white;
+                font-size: 14px;
+                font-weight: 700;
+            }
+            .artist-album{
+                color: white;
+                font-size: 14px;
+            }
+        }
+    }
     .controls{
+        width: 20vw;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -24,4 +54,84 @@
             color: white;
         }
     }
+    .volumeSeeker{
+        color: white;
+
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            background: white;
+            border-radius: 1.3px;
+            border: none;
+          }
+          
+          input[type=range]:focus::-webkit-slider-runnable-track {
+            background: white;
+          }
+          
+          input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            background: white;
+            border-radius: 1.3px;
+            border: none;
+          }
+          
+          input[type=range]::-ms-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            border-width: 16px 0;
+            color: transparent;
+          }
+          input[type=range]::-ms-fill-lower {
+            background: white;
+            border: none;
+          }
+          input[type=range]:focus::-ms-fill-lower {
+            background: white;
+          }
+          input[type=range]::-ms-fill-upper {
+            background: white;
+            border: none;
+          }
+          input[type=range]:focus::-ms-fill-upper {
+            background: white;
+          }
+
+          
+          input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 56px;
+            width: 56px;
+            border-radius: 2em;
+            background: white;
+            cursor: pointer;
+            margin-top: -3px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+          }
+          
+          /* All the same stuff for Firefox */
+          input[type=range]::-moz-range-thumb {
+            height: 56px;
+            width: 56px;
+            border-radius: 2em;
+            background: white;
+            cursor: pointer;
+          }
+          
+          /* All the same stuff for IE */
+          input[type=range]::-ms-thumb {
+            height: 56px;
+            width: 56px;
+            border-radius: 2em;
+            background: white;
+            cursor: pointer;
+          }
+    }
+
 }

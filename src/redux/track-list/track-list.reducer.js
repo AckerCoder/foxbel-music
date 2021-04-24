@@ -1,9 +1,11 @@
 import { playTrack, setPlayList } from './track-list.utils';
-
+import {Howl} from 'howler'; 
 const INITIAL_STATE = {
     trackList: [],
     playList: [],
-    mediaPlayer: ()=>{console.log("hello world")},
+    mediaPlayer: new Howl({
+        src:[""]
+    }),
     indexCurrentSong: 0
 }
 
@@ -17,7 +19,7 @@ const trackList = (state = INITIAL_STATE, action) => {
         case 'PLAY_TRACK':
             return{
                 ...state,
-                mediaPlayer: playTrack(action.payload, state.playList)
+                indexCurrentSong: playTrack(action.payload, state.playList, state.mediaPlayer)
             }    
         case 'SET_PLAY_LIST':
             return{

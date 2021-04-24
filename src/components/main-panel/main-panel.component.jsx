@@ -9,8 +9,6 @@ import PlayList from '../play-list/play-list.component';
 import SearchBar from '../search-bar/search-bar.component';
 
 class MainPanel extends React.Component{
-    
-
     componentDidMount(){
         const {setCurrentTrackList} = this.props;
         const {setPlayList} = this.props
@@ -30,10 +28,10 @@ class MainPanel extends React.Component{
     }
 }
 
-
-
 const mapDispatchToProps = dispatch=>({
     setCurrentTrackList: trackList => dispatch(setCurrentTrackList(trackList)),
     setPlayList: trackList => dispatch(setPlayList(trackList))
 })
+
+
 export default connect(null, mapDispatchToProps)(MainPanel);

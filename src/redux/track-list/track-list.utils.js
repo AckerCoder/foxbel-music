@@ -1,19 +1,19 @@
-import {Howl} from 'howler';
-
+import {Howl} from 'howler'; 
 
 export const setPlayList = (trackList) => {
-    let mp3List = [];
-    trackList.map(track => mp3List.push(track.preview))
-    return mp3List;
+    if(trackList){
+        let mp3List = [];
+        trackList.map(track => mp3List.push(track.preview))
+        return mp3List;
+    }
 }
 
-export const playTrack = (indexSong, currentPlayList) => {
-    console.log("Array of MP3: ", currentPlayList);
-    console.log("Index: ", indexSong);
+export const playTrack = (indexSong, currentPlayList, mediaPlayer) => {
+    window.Howler.stop();
+    mediaPlayer = new Howl({
+        src: currentPlayList[indexSong]
+    })
+    mediaPlayer.play();
 
-    let sound = new Howl({
-        src: [currentPlayList[indexSong]]
-    });
-    sound.play();
-    return Howl;
+    return indexSong;
 }

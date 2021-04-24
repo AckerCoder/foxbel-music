@@ -1,18 +1,20 @@
 .playlist{
     display: flex;
     width: 70vw;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     .container{
         display: flex;
         flex-direction: column;
         overflow-wrap: break-word;
         text-align: left;
-        width: 10em;
+        width: 7em;
+        margin-top: 2em;
+        margin-left: 2em;
         .play-button{
             position: absolute;
-            width: 10em;
-            height: 10em;
+            width: 7em;
+            height: 7em;
             display: flex;   
             justify-content: center;
             align-items: center;
@@ -28,21 +30,21 @@
         
     }
     img{
-        width: 10em;
-        height: 10em;
+        width: 7em;
+        height: 7em;
     }
 
     .title{
         font-family: Quicksand;
         font-weight: 700;
         color:#555555;
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .artist{
         font-family: Quicksand;
         font-weight: 400;
         color: #828282;
-        font-size: 12px;
+        font-size: 8px;
     }
 }

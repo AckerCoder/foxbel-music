@@ -7,14 +7,14 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlay} from '@fortawesome/free-solid-svg-icons';
 import { playTrack } from '../../redux/track-list/track-list.actions';
 
-const PlayList = ({trackList, playList, playTrack}) => (
+const PlayList = ({trackList, playList, playTrack, mediaPlayer}) => (
     <div className="playlist">
         {
                     trackList?trackList.map(
                         (track, i) => (
                             <div className="container" key={i}>
                                 <img src={track.album.cover} alt={track.title_short}/>
-                                <div className="play-button" onClick={(i,playList)=>{playTrack(trackList.indexOf(track),playList)}}>
+                                <div className="play-button" onClick={()=>{playTrack(trackList.indexOf(track),playList,mediaPlayer)}}>
                                     <FontAwesomeIcon className="play-icon" icon={faPlay}/>
                                 </div>
                                 <span className="title">{track.title_short}</span>
@@ -25,10 +25,10 @@ const PlayList = ({trackList, playList, playTrack}) => (
                 }
     </div>
 )
-
 const mapStateToProps = state=>({
     trackList: state.trackList.trackList,
-    playList: state.trackList.playList
+    playList: state.trackList.playList,
+    mediaPlayer: state.trackList.mediaPlayer
 })
 
 const mapDispatchToProps = dispatch=>({
